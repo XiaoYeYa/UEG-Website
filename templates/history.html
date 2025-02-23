@@ -1,0 +1,563 @@
+{% extends "base.html" %}
+
+{% block title %} - 历史事件{% endblock %}
+
+{% block content %}
+<div class="history-page">
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>人类文明重大事件</h1>
+            <p class="subtitle">记录人类在流浪地球计划中的重要时刻</p>
+            <div class="event-stats">
+                <div class="stat-item">
+                    <span class="stat-value">2044</span>
+                    <span class="stat-label">计划启动</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">3,000+</span>
+                    <span class="stat-label">地下城市</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">17,854</span>
+                    <span class="stat-label">行星发动机</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="timeline-container">
+        <div class="timeline-header">
+            <h2>重大事件时间线</h2>
+            <div class="timeline-filters">
+                <button class="filter-btn active">全部</button>
+                <button class="filter-btn">重大工程</button>
+                <button class="filter-btn">危机事件</button>
+                <button class="filter-btn">科技突破</button>
+            </div>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item" data-category="重大工程">
+                <div class="timeline-card">
+                    <div class="card-header">
+                        <span class="year">2044</span>
+                        <span class="category">重大工程</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>流浪地球计划正式启动</h3>
+                        <p>面对太阳即将膨胀的危机，人类开启史上最宏大的工程。全球共建万台行星发动机，准备带领地球离开太阳系。</p>
+                        <div class="image-container">
+                            <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1200&auto=format" alt="流浪地球计划启动">
+                            <div class="image-overlay"></div>
+                        </div>
+                        <div class="stats-grid">
+                            <div class="stat">
+                                <span class="label">参与国家</span>
+                                <span class="value">196</span>
+                            </div>
+                            <div class="stat">
+                                <span class="label">工程人员</span>
+                                <span class="value">8.5亿</span>
+                            </div>
+                            <div class="stat">
+                                <span class="label">投入资源</span>
+                                <span class="value">98%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-category="重大工程">
+                <div class="timeline-card">
+                    <div class="card-header">
+                        <span class="year">2058</span>
+                        <span class="category">重大工程</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>地下城市建设完成</h3>
+                        <p>全球范围内建成超过3000座地下城市，可容纳约25亿人口。地表生态系统开始改造，为即将到来的流浪之旅做准备。</p>
+                        <div class="image-container">
+                            <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=1200&auto=format" alt="地下城市建设">
+                            <div class="image-overlay"></div>
+                        </div>
+                        <div class="stats-grid">
+                            <div class="stat">
+                                <span class="label">城市数量</span>
+                                <span class="value">3,000+</span>
+                            </div>
+                            <div class="stat">
+                                <span class="label">容纳人口</span>
+                                <span class="value">25亿</span>
+                            </div>
+                            <div class="stat">
+                                <span class="label">完工率</span>
+                                <span class="value">100%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-category="危机事件">
+                <div class="timeline-card warning">
+                    <div class="card-header">
+                        <span class="year">2075</span>
+                        <span class="category danger">危机事件</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>木星引力危机</h3>
+                        <p>在利用木星引力加速过程中，发生重大危机。地球轨道偏离预定轨道，全球遭遇剧烈地震，大气层被木星引力影响。经过全人类的努力，最终化险为夷。</p>
+                        <div class="image-container">
+                            <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=1200&auto=format" alt="木星危机">
+                            <div class="image-overlay danger"></div>
+                        </div>
+                        <div class="alert-box">
+                            <span class="alert-icon">⚠️</span>
+                            <span class="alert-text">全球警报等级：红色</span>
+                        </div>
+                        <div class="stats-grid">
+                            <div class="stat">
+                                <span class="label">伤亡人数</span>
+                                <span class="value">18.3万</span>
+                            </div>
+                            <div class="stat">
+                                <span class="label">城市损毁</span>
+                                <span class="value">47座</span>
+                            </div>
+                            <div class="stat">
+                                <span class="label">修复进度</span>
+                                <span class="value">100%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-category="危机事件">
+                <div class="timeline-card warning">
+                    <div class="card-header">
+                        <span class="year">2078</span>
+                        <span class="category danger">危机事件</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>月球坠落事件</h3>
+                        <p>月球行星发动机过载导致轨道偏离，威胁地球安全。通过牺牲月球，人类成功避免了灾难，但失去了这个陪伴了数十亿年的伙伴。</p>
+                        <div class="image-container">
+                            <img src="https://images.unsplash.com/photo-1522030299830-16b8d3d049fe?w=1200&auto=format" alt="月球坠落">
+                            <div class="image-overlay danger"></div>
+                        </div>
+                        <div class="alert-box">
+                            <span class="alert-icon">⚠️</span>
+                            <span class="alert-text">全球警报等级：黑色</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-category="科技突破">
+                <div class="timeline-card">
+                    <div class="card-header">
+                        <span class="year">2080</span>
+                        <span class="category tech">科技突破</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>量子通信网络全面部署</h3>
+                        <p>全球量子通信网络完成部署，实现了地下城市间的安全、即时通信。这一突破为人类文明的数据传输和存储提供了新的可能。</p>
+                        <div class="image-container">
+                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&auto=format" alt="量子通信">
+                            <div class="image-overlay tech"></div>
+                        </div>
+                        <div class="tech-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">传输速度</span>
+                                <span class="spec-value">10 TB/s</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">覆盖范围</span>
+                                <span class="spec-value">100%</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">安全等级</span>
+                                <span class="spec-value">S+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.history-page {
+    min-height: 100vh;
+    background: #000;
+    color: #fff;
+}
+
+.hero-section {
+    height: 60vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&auto=format') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 0 2rem;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, #FF453A, #FF9F0A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 3rem;
+}
+
+.event-stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 3rem;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.timeline-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.timeline-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.timeline-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.timeline-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.filter-btn {
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 100px;
+    color: #fff;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-btn.active {
+    background: #FF453A;
+    border-color: #FF453A;
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    position: relative;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, 
+        rgba(255, 69, 58, 0.3),
+        rgba(255, 159, 10, 0.3));
+}
+
+.timeline-item {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.timeline-card {
+    width: 90%;
+    max-width: 800px;
+    background: rgba(28, 28, 30, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    overflow: hidden;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: slideUp 0.5s ease forwards;
+}
+
+.timeline-card.warning {
+    border-color: rgba(255, 69, 58, 0.3);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.year {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #FF453A;
+}
+
+.category {
+    padding: 0.5rem 1rem;
+    background: rgba(255, 159, 10, 0.1);
+    border-radius: 100px;
+    color: #FF9F0A;
+    font-size: 0.9rem;
+}
+
+.category.danger {
+    background: rgba(255, 69, 58, 0.1);
+    color: #FF453A;
+}
+
+.category.tech {
+    background: rgba(48, 209, 88, 0.1);
+    color: #30D158;
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.card-content p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.image-overlay.danger {
+    background: linear-gradient(to top, rgba(255, 69, 58, 0.2), transparent);
+}
+
+.image-overlay.tech {
+    background: linear-gradient(to top, rgba(48, 209, 88, 0.2), transparent);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+}
+
+.stat .label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.stat .value {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #FF453A;
+}
+
+.alert-box {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(255, 69, 58, 0.1);
+    border: 1px solid rgba(255, 69, 58, 0.3);
+    border-radius: 8px;
+    margin: 1.5rem 0;
+}
+
+.alert-icon {
+    font-size: 1.5rem;
+}
+
+.alert-text {
+    color: #FF453A;
+    font-weight: 500;
+}
+
+.tech-specs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+    background: rgba(48, 209, 88, 0.1);
+    border: 1px solid rgba(48, 209, 88, 0.3);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.spec-item {
+    text-align: center;
+}
+
+.spec-label {
+    display: block;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 0.5rem;
+}
+
+.spec-value {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #30D158;
+}
+
+@keyframes slideUp {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .event-stats {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .timeline::before {
+        left: 20px;
+    }
+
+    .timeline-card {
+        width: calc(100% - 40px);
+        margin-left: 40px;
+    }
+
+    .stats-grid,
+    .tech-specs {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 筛选功能
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const timelineItems = document.querySelectorAll('.timeline-item');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // 更新按钮状态
+            filterBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+
+            // 筛选事件
+            const category = this.textContent;
+            timelineItems.forEach(item => {
+                if (category === '全部' || item.dataset.category === category) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // 滚动动画
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    document.querySelectorAll('.timeline-card').forEach(card => {
+        observer.observe(card);
+    });
+});
+</script>
+{% endblock %} 

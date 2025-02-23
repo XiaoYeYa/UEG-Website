@@ -1,0 +1,744 @@
+{% extends "base.html" %}
+
+{% block title %} - 首页{% endblock %}
+
+{% block content %}
+<div class="swift-ui-page">
+    <div class="hero-section">
+        <div class="hero-content fade-in">
+            <h1 class="depth-text">
+                <span class="cn">地球联合政府</span>
+                <span class="en">UNITED EARTH GOVERNMENT</span>
+            </h1>
+            <p class="hero-subtitle depth-text">
+                <span class="cn">为人类文明的延续而奋斗</span>
+                <span class="en">FIGHTING FOR THE CONTINUATION OF HUMAN CIVILIZATION</span>
+            </p>
+            <div class="stat-grid">
+                <div class="stat-card scale-in">
+                    <span class="stat-number" data-number-animation="17854">0</span>
+                    <span class="stat-label">行星发动机</span>
+                </div>
+                <div class="stat-card scale-in">
+                    <span class="stat-number" data-number-animation="3000">0</span>
+                    <span class="stat-label">地下城市</span>
+                </div>
+                <div class="stat-card scale-in">
+                    <span class="stat-number" data-number-animation="2500000000">0</span>
+                    <span class="stat-label">幸存人口</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <div class="news-grid">
+            <div class="section-header fade-in">
+                <h2>最新公告</h2>
+                <a href="{{ url_for('news') }}" class="view-all swift-button">查看全部 →</a>
+            </div>
+            <div class="swift-card news-card slide-in">
+                <div class="card-content">
+                    <div class="card-header">
+                        <span class="date-badge">2044-03-15</span>
+                        <span class="priority-badge">紧急</span>
+                    </div>
+                    <h3>木星轨道修正计划启动</h3>
+                    <p>鉴于最新观测数据显示木星引力场波动超出预期，联合政府决定启动轨道修正计划。所有地下城市将进入防护状态，公民需保持关注实时通知。</p>
+                    <a href="#" class="swift-button secondary">
+                        阅读更多
+                        <span class="button-icon">→</span>
+                    </a>
+                </div>
+            </div>
+            <div class="swift-card news-card">
+                <div class="card-content">
+                    <div class="card-header">
+                        <span class="date-badge">2044-03-14</span>
+                        <span class="priority-badge">重要</span>
+                    </div>
+                    <h3>第3847号地下城市完成扩建</h3>
+                    <p>位于前青藏高原区域的3847号地下城市完成扩建工程，新增容纳人口50万，配备最新的生态循环系统和防护设施。</p>
+                    <a href="#" class="swift-button secondary">
+                        阅读更多
+                        <span class="button-icon">→</span>
+                    </a>
+                </div>
+            </div>
+            <div class="swift-card news-card">
+                <div class="card-content">
+                    <div class="card-header">
+                        <span class="date-badge">2044-03-13</span>
+                        <span class="priority-badge">通知</span>
+                    </div>
+                    <h3>行星发动机维护计划调整</h3>
+                    <p>为确保木星轨道加速阶段的平稳过渡，联合政府技术部门调整了行星发动机的维护计划，所有市民请注意查看是否影响所在区域。</p>
+                    <a href="#" class="swift-button secondary">
+                        阅读更多
+                        <span class="button-icon">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="quick-access-grid">
+            <div class="section-header fade-in">
+                <h2>快速通道</h2>
+            </div>
+            <div class="grid-container">
+                <a href="{{ url_for('citizen_system') }}" class="swift-card access-card scale-in">
+                    <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=500&auto=format" alt="公民系统" class="card-image">
+                    <div class="card-overlay">
+                        <h3>公民身份验证</h3>
+                        <p>身份认证、权限管理、配给申请</p>
+                    </div>
+                </a>
+                <a href="{{ url_for('underground_cities') }}" class="swift-card access-card">
+                    <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=500&auto=format" alt="地下城市" class="card-image">
+                    <div class="card-overlay">
+                        <h3>地下城市导航</h3>
+                        <p>城市分布、转移申请、设施查询</p>
+                    </div>
+                </a>
+                <a href="{{ url_for('history') }}" class="swift-card access-card">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&auto=format" alt="历史事件" class="card-image">
+                    <div class="card-overlay">
+                        <h3>历史档案库</h3>
+                        <p>重大事件、决策记录、文明档案</p>
+                    </div>
+                </a>
+                <a href="{{ url_for('government') }}" class="swift-card access-card">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=500&auto=format" alt="联合政府" class="card-image">
+                    <div class="card-overlay">
+                        <h3>政务中心</h3>
+                        <p>组织架构、政策法规、建议反馈</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="status-section">
+            <div class="section-header fade-in">
+                <h2>实时状态</h2>
+            </div>
+            <div class="status-grid">
+                <div class="swift-card status-card engine-status slide-in">
+                    <h3>行星发动机状态</h3>
+                    <div class="status-indicator">
+                        <span class="status-dot active"></span>
+                        <span class="status-text">运行正常</span>
+                    </div>
+                    <div class="swift-progress-bar">
+                        <div class="progress" data-progress-animation="92"></div>
+                    </div>
+                    <div class="status-details">
+                        <span>效率：<span class="number-animation" data-number-animation="92">0</span>%</span>
+                        <span>温度：正常</span>
+                    </div>
+                </div>
+                <div class="swift-card status-card flight-data slide-in">
+                    <h3>地球航行数据</h3>
+                    <div class="data-grid">
+                        <div class="data-item">
+                            <span class="label">当前速度</span>
+                            <span class="value number-animation" data-number-animation="12.5">0</span> km/s
+                        </div>
+                        <div class="data-item">
+                            <span class="label">距离木星</span>
+                            <span class="value number-animation" data-number-animation="147570000">0</span> km
+                        </div>
+                        <div class="data-item">
+                            <span class="label">预计到达</span>
+                            <span class="value">2044-07-15</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="services-section">
+        <div class="section-header fade-in">
+            <h2 class="depth-text">
+                <span class="cn">政务服务</span>
+                <span class="en">GOVERNMENT SERVICES</span>
+            </h2>
+            <p class="section-desc">为全球公民提供便捷的政务服务</p>
+        </div>
+        <div class="services-grid">
+            <a href="{{ url_for('lottery') }}" class="swift-card service-card lottery">
+                <div class="service-icon">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=500&auto=format" alt="地下城抽签">
+                </div>
+                <div class="service-content">
+                    <h3 class="depth-text">
+                        <span class="cn">地下城资格抽签</span>
+                        <span class="en">UNDERGROUND CITY LOTTERY</span>
+                    </h3>
+                    <p>参与地下城市居住资格抽签，为您和家人获取安全的生存空间</p>
+                    <div class="service-stats">
+                        <div class="stat">
+                            <span class="label">本期名额</span>
+                            <span class="value" data-number-animation="50000">0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="label">剩余时间</span>
+                            <span class="countdown">23:59:59</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="{{ url_for('communication') }}" class="swift-card service-card communication">
+                <div class="service-icon">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&auto=format" alt="UEG通讯平台">
+                </div>
+                <div class="service-content">
+                    <h3 class="depth-text">
+                        <span class="cn">UEG通讯平台</span>
+                        <span class="en">UEG COMMUNICATION</span>
+                    </h3>
+                    <p>安全加密的全球通讯网络，连接每一位地球公民</p>
+                    <div class="service-stats">
+                        <div class="stat">
+                            <span class="label">在线用户</span>
+                            <span class="value" data-number-animation="1234567">0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="label">系统状态</span>
+                            <span class="status">运行正常</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+.swift-ui-page {
+    min-height: 100vh;
+    background: #000;
+    color: #fff;
+}
+
+.hero-section {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1920&auto=format') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.hero-content h1 {
+    font-size: 5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #fff;
+    letter-spacing: -1px;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 3rem;
+    font-weight: 300;
+}
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin-top: 4rem;
+}
+
+.stat-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.stat-number {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+    transition: color 0.3s ease;
+}
+
+.stat-number.updating {
+    color: #FF453A;
+}
+
+.stat-label {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.content-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.section-header h2 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.view-all {
+    color: #FF453A;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+}
+
+.swift-card {
+    background: rgba(13, 13, 13, 0.8);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.swift-card:hover {
+    transform: scale(1.02) translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.news-grid {
+    margin-bottom: 4rem;
+}
+
+.news-card {
+    margin-bottom: 1rem;
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-header {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.date-badge, .priority-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    font-size: 0.8rem;
+}
+
+.date-badge {
+    background: rgba(255, 69, 58, 0.1);
+    color: #FF453A;
+}
+
+.priority-badge {
+    background: rgba(255, 159, 10, 0.1);
+    color: #FF9F0A;
+}
+
+.swift-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+
+.swift-button.secondary {
+    background: rgba(255, 69, 58, 0.1);
+    color: #FF453A;
+}
+
+.button-icon {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.swift-button:hover .button-icon {
+    transform: translateX(5px);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.access-card {
+    position: relative;
+    aspect-ratio: 4/3;
+    text-decoration: none;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: #fff;
+}
+
+.card-overlay h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-overlay p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.status-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.status-card {
+    padding: 1.5rem;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #FF453A;
+    position: relative;
+}
+
+.status-dot.active {
+    background: #32D74B;
+}
+
+.status-dot.active::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    background: rgba(50, 215, 75, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    70% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+}
+
+.swift-progress-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    margin: 1rem 0;
+    position: relative;
+}
+
+.swift-progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent);
+    animation: progress-shine 2s linear infinite;
+}
+
+@keyframes progress-shine {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(100%); }
+}
+
+.progress {
+    height: 100%;
+    background: #32D74B;
+    transition: width 0.3s ease;
+}
+
+.status-details {
+    display: flex;
+    justify-content: space-between;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+.data-grid {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.data-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.data-item .label {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.data-item .value {
+    color: #FF453A;
+    font-weight: 500;
+}
+
+.number-animation {
+    transition: color 0.3s ease;
+}
+
+.number-animation.updating {
+    color: #FF453A;
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .stat-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 文字景深效果 */
+.depth-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-shadow: 0 0 10px rgba(255, 69, 58, 0.2);
+}
+
+.depth-text .cn {
+    font-size: 1.2em;
+    font-weight: 700;
+    background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.8) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.depth-text .en {
+    font-size: 0.6em;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+}
+
+/* 政务服务区域样式 */
+.services-section {
+    padding: 4rem 2rem;
+    background: rgba(13, 13, 13, 0.8);
+}
+
+.services-grid {
+    max-width: 1200px;
+    margin: 2rem auto 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: rgba(13, 13, 13, 0.8);
+    border: 1px solid rgba(255, 69, 58, 0.2);
+    border-radius: 20px;
+    overflow: hidden;
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+    border-color: #FF453A;
+}
+
+.service-icon {
+    height: 200px;
+    overflow: hidden;
+}
+
+.service-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-icon img {
+    transform: scale(1.05);
+}
+
+.service-content {
+    padding: 1.5rem;
+}
+
+.service-content h3 {
+    margin-bottom: 1rem;
+}
+
+.service-content p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.service-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.service-stats .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.service-stats .label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.service-stats .value {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #FF453A;
+}
+
+.service-stats .status {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #32D74B;
+}
+
+.countdown {
+    font-family: 'SF Mono', monospace;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #FF9F0A;
+}
+
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    margin-bottom: 1rem;
+}
+
+.section-header .depth-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.section-header .depth-text .cn {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.section-header .depth-text .en {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+}
+
+.section-desc {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 更新倒计时
+    function updateCountdown() {
+        const now = new Date();
+        const end = new Date();
+        end.setHours(23, 59, 59);
+        
+        const diff = end - now;
+        const hours = Math.floor(diff / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        
+        const countdown = document.querySelector('.countdown');
+        if (countdown) {
+            countdown.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+    }
+    
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+});
+</script>
+{% endblock %} 

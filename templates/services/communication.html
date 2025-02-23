@@ -1,0 +1,825 @@
+{% extends "base.html" %}
+
+{% block title %} - UEG通讯平台{% endblock %}
+
+{% block content %}
+<div class="communication-page">
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1 class="depth-text">
+                <span class="cn">UEG通讯平台</span>
+                <span class="en">COMMUNICATION PLATFORM</span>
+            </h1>
+            <p class="subtitle">安全、高效的量子加密通讯系统</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="label">在线用户</span>
+                    <span class="value">12,947</span>
+                </div>
+                <div class="stat-item">
+                    <span class="label">活跃频道</span>
+                    <span class="value">247</span>
+                </div>
+                <div class="stat-item">
+                    <span class="label">通讯延迟</span>
+                    <span class="value">0.1ms</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="communication-content">
+        <div class="sidebar">
+            <div class="user-info">
+                <div class="user-avatar">
+                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&auto=format" alt="用户头像">
+                    <span class="status-dot online"></span>
+                </div>
+                <div class="user-details">
+                    <div class="user-name">{{ current_user.username }}</div>
+                    <div class="user-id">ID: {{ current_user.citizen_id }}</div>
+                </div>
+            </div>
+
+            <div class="channels">
+                <h3>通讯频道</h3>
+                <div class="channel-list">
+                    <a href="#" class="channel-item active">
+                        <span class="channel-icon">📢</span>
+                        <span class="channel-name">公共频道</span>
+                        <span class="notification-badge">5</span>
+                    </a>
+                    <a href="#" class="channel-item">
+                        <span class="channel-icon">🏛️</span>
+                        <span class="channel-name">政府公告</span>
+                        <span class="notification-badge">2</span>
+                    </a>
+                    <a href="#" class="channel-item">
+                        <span class="channel-icon">🚨</span>
+                        <span class="channel-name">紧急频道</span>
+                    </a>
+                    <a href="#" class="channel-item">
+                        <span class="channel-icon">👥</span>
+                        <span class="channel-name">社区交流</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="contacts">
+                <h3>联系人</h3>
+                <div class="contact-list">
+                    <div class="contact online">
+                        <div class="contact-avatar">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&auto=format" alt="管理员头像">
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-name">管理员</div>
+                            <div class="contact-status">在线</div>
+                        </div>
+                    </div>
+                    <div class="contact offline">
+                        <div class="contact-avatar">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&auto=format" alt="技术支持头像">
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-name">技术支持</div>
+                            <div class="contact-status">离线</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-area">
+            <div class="chat-header">
+                <div class="chat-title">
+                    <h2>公共频道</h2>
+                    <span class="online-count">2,947 在线</span>
+                </div>
+                <div class="chat-actions">
+                    <button class="action-btn">
+                        <span class="icon">🔍</span>
+                        搜索
+                    </button>
+                    <button class="action-btn">
+                        <span class="icon">⚙️</span>
+                        设置
+                    </button>
+                </div>
+            </div>
+
+            <div class="chat-messages" id="chat-messages">
+                <div class="message incoming">
+                    <div class="message-avatar">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&auto=format" alt="系统头像">
+                    </div>
+                    <div class="message-bubble">
+                        <div class="message-sender">系统公告</div>
+                        <div class="message-content">欢迎来到UEG公共频道。请注意：所有通讯内容将被加密存储，仅供授权人员访问。</div>
+                        <div class="message-time">08:00</div>
+                    </div>
+                </div>
+
+                <div class="message incoming">
+                    <div class="message-avatar">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&auto=format" alt="管理员头像">
+                    </div>
+                    <div class="message-bubble">
+                        <div class="message-sender">管理员</div>
+                        <div class="message-content">【重要通知】3847号地下城市将于今日14:00进行例行防护罩检修，预计持续2小时。请相关区域居民做好准备。</div>
+                        <div class="message-time">09:15</div>
+                    </div>
+                </div>
+
+                <div class="message incoming">
+                    <div class="message-avatar">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format" alt="公民头像">
+                    </div>
+                    <div class="message-bubble">
+                        <div class="message-sender">李工程师</div>
+                        <div class="message-content">收到通知。请问检修期间是否会影响地下农场的环境控制系统？</div>
+                        <div class="message-time">09:17</div>
+                    </div>
+                </div>
+
+                <div class="message incoming">
+                    <div class="message-avatar">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&auto=format" alt="管理员头像">
+                    </div>
+                    <div class="message-bubble">
+                        <div class="message-sender">管理员</div>
+                        <div class="message-content">农场区域使用独立备用电源，不会受到影响。但建议相关工作人员在检修期间密切监控环境参数。</div>
+                        <div class="message-time">09:20</div>
+                    </div>
+                </div>
+
+                <div class="message incoming">
+                    <div class="message-avatar">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&auto=format" alt="技术支持头像">
+                    </div>
+                    <div class="message-bubble">
+                        <div class="message-sender">技术支持</div>
+                        <div class="message-content">【系统更新】量子通信网络已完成升级，通讯延迟降低至0.1ms。如遇连接问题，请刷新终端设备。</div>
+                        <div class="message-time">10:30</div>
+                    </div>
+                </div>
+
+                <div class="message incoming">
+                    <div class="message-avatar">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format" alt="公民头像">
+                    </div>
+                    <div class="message-bubble">
+                        <div class="message-sender">王研究员</div>
+                        <div class="message-content">木星轨道修正计划的最新数据已经上传到资料库，请相关部门及时查看。</div>
+                        <div class="message-time">10:45</div>
+                    </div>
+                </div>
+
+                <div class="message incoming">
+                    <div class="message-avatar">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&auto=format" alt="管理员头像">
+                    </div>
+                    <div class="message-bubble">
+                        <div class="message-sender">管理员</div>
+                        <div class="message-content">【安全提醒】检测到地球发动机组#17854出现轻微震动，技术团队正在排查。请市民保持冷静，这是例行检测的一部分。</div>
+                        <div class="message-time">11:05</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-input">
+                <textarea id="message-input" placeholder="输入消息..." rows="1"></textarea>
+                <button id="send-btn" class="send-btn">
+                    发送
+                    <span class="arrow">→</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <div class="channel-info">
+                <h3>频道信息</h3>
+                <div class="info-stats">
+                    <div class="stat-item">
+                        <span class="label">在线用户</span>
+                        <span class="value">2,947</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="label">消息数量</span>
+                        <span class="value">147,283</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="label">创建时间</span>
+                        <span class="value">2044-01-01</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="channel-rules">
+                <h3>频道规则</h3>
+                <ul>
+                    <li>遵守UEG通讯管理条例</li>
+                    <li>保持文明礼貌的交流态度</li>
+                    <li>不得发布虚假或误导性信息</li>
+                    <li>避免发布与话题无关的内容</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.communication-page {
+    min-height: 100vh;
+    background: #000;
+    color: #fff;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-section {
+    padding: 4rem 2rem;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 2rem;
+}
+
+.communication-content {
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+    height: calc(100vh - 200px);
+    min-height: 600px;
+    display: grid;
+    grid-template-columns: 250px 1fr 250px;
+    background: rgba(13, 13, 13, 0.95);
+    position: relative;
+    z-index: 2;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(255, 69, 58, 0.2);
+    margin-bottom: 4rem;
+}
+
+.sidebar {
+    background: rgba(13, 13, 13, 0.95);
+    border-right: 1px solid rgba(255, 69, 58, 0.2);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.user-avatar {
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.status-dot {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid #000;
+}
+
+.status-dot.online {
+    background: #32D74B;
+}
+
+.status-dot.offline {
+    background: #FF453A;
+}
+
+.user-details {
+    flex: 1;
+}
+
+.user-name {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.user-id {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.channels, .contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.channels h3, .contacts h3 {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.channel-list, .contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.channel-item, .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.channel-item:hover, .contact-item:hover,
+.channel-item.active {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.channel-icon {
+    font-size: 1.2rem;
+}
+
+.channel-name {
+    flex: 1;
+}
+
+.notification-badge {
+    background: #FF453A;
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 100px;
+}
+
+.contact-avatar {
+    position: relative;
+    width: 32px;
+    height: 32px;
+}
+
+.contact-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-name {
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+.contact-status {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chat-area {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(13, 13, 13, 0.95);
+}
+
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(255, 69, 58, 0.2);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.chat-title {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+}
+
+.chat-title h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    background: linear-gradient(90deg, #FF453A, #FF9F0A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 10px rgba(255, 69, 58, 0.3);
+}
+
+.online-count {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+.chat-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.action-btn {
+    padding: 0.5rem 1rem;
+    background: rgba(255, 69, 58, 0.1);
+    border: 1px solid rgba(255, 69, 58, 0.2);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+    background: rgba(255, 69, 58, 0.2);
+    border-color: rgba(255, 69, 58, 0.3);
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    padding-bottom: 2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.message {
+    display: flex;
+    gap: 1rem;
+    max-width: 85%;
+}
+
+.message.incoming {
+    align-self: flex-start;
+}
+
+.message.outgoing {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+
+.message-avatar {
+    width: 28px;
+    height: 28px;
+}
+
+.message-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.message-bubble {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.75rem;
+    border-radius: 16px;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.message.incoming .message-bubble {
+    border-top-left-radius: 4px;
+}
+
+.message.outgoing .message-bubble {
+    background: rgba(255, 69, 58, 0.1);
+    border-color: rgba(255, 69, 58, 0.2);
+}
+
+.message-sender {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 0.25rem;
+}
+
+.message-content {
+    line-height: 1.5;
+}
+
+.message-time {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: 0.5rem;
+}
+
+.chat-input {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    padding: 1.25rem;
+    background: rgba(13, 13, 13, 0.95);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: auto;
+    display: flex;
+    gap: 1rem;
+    box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.2);
+}
+
+textarea {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 69, 58, 0.2);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    color: #fff;
+    font-size: 1rem;
+    resize: none;
+    transition: all 0.2s ease;
+}
+
+textarea:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 69, 58, 0.3);
+}
+
+.send-btn {
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(90deg, #FF453A, #FF9F0A);
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.send-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 69, 58, 0.3);
+}
+
+.info-panel {
+    background: rgba(13, 13, 13, 0.95);
+    border-left: 1px solid rgba(255, 69, 58, 0.2);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.channel-info h3, .channel-rules h3 {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.info-stats {
+    display: grid;
+    gap: 1rem;
+}
+
+.info-stats .stat-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 69, 58, 0.2);
+    border-radius: 12px;
+    padding: 1rem;
+    backdrop-filter: blur(10px);
+}
+
+.info-stats .label {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+.info-stats .value {
+    font-weight: 500;
+}
+
+.channel-rules ul {
+    list-style: none;
+    padding: 0;
+}
+
+.channel-rules li {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.channel-rules li::before {
+    content: "•";
+    color: #FF453A;
+    text-shadow: 0 0 10px rgba(255, 69, 58, 0.3);
+}
+
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),
+                url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&auto=format') center/cover;
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background: linear-gradient(to bottom, transparent, rgba(13, 13, 13, 0.8));
+    pointer-events: none;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.depth-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.depth-text .cn {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #FF453A, #FF9F0A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 10px rgba(255, 69, 58, 0.3);
+}
+
+.depth-text .en {
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+}
+
+.subtitle {
+    margin: 1rem 0 2rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 2rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 69, 58, 0.2);
+}
+
+.hero-stats .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+}
+
+.hero-stats .stat-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 40px;
+    background: rgba(255, 69, 58, 0.2);
+}
+
+.hero-stats .label {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+.hero-stats .value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #FF453A;
+    text-shadow: 0 0 20px rgba(255, 69, 58, 0.3);
+}
+
+@media (max-width: 1200px) {
+    .communication-content {
+        width: 95%;
+        grid-template-columns: 220px 1fr 220px;
+    }
+}
+
+@media (max-width: 992px) {
+    .communication-content {
+        grid-template-columns: 200px 1fr;
+    }
+    .info-panel {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .communication-content {
+        width: 100%;
+        height: calc(100vh - 200px);
+        grid-template-columns: 1fr;
+        border-radius: 24px 24px 0 0;
+    }
+    .sidebar {
+        display: none;
+    }
+    .hero-section {
+        margin-bottom: 0;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const messageInput = document.getElementById('message-input');
+    const sendButton = document.getElementById('send-btn');
+    const chatMessages = document.getElementById('chat-messages');
+
+    function showUnauthorizedMessage() {
+        const messageHTML = `
+            <div class="message incoming">
+                <div class="message-avatar">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&auto=format" alt="系统头像">
+                </div>
+                <div class="message-bubble">
+                    <div class="message-sender">系统</div>
+                    <div class="message-content">授权未通过，您没有权限发送消息。</div>
+                    <div class="message-time">${String(new Date().getHours()).padStart(2, '0')}:${String(new Date().getMinutes()).padStart(2, '0')}</div>
+                </div>
+            </div>
+        `;
+        
+        chatMessages.insertAdjacentHTML('beforeend', messageHTML);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    sendButton.addEventListener('click', function() {
+        const message = messageInput.value.trim();
+        if (message) {
+            messageInput.value = '';
+            showUnauthorizedMessage();
+        }
+    });
+
+    messageInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            sendButton.click();
+        }
+    });
+
+    // 添加输入框提示
+    messageInput.placeholder = "您没有发送消息的权限";
+    messageInput.style.color = "rgba(255, 69, 58, 0.5)";
+    messageInput.style.cursor = "not-allowed";
+    sendButton.style.opacity = "0.5";
+    sendButton.style.cursor = "not-allowed";
+});
+</script>
+{% endblock %} 

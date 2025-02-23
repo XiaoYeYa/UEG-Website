@@ -1,0 +1,483 @@
+{% extends "base.html" %}
+
+{% block title %} - 联合政府{% endblock %}
+
+{% block content %}
+<div class="government-page">
+    <div class="page-header">
+        <div class="header-content">
+            <h1>地球联合政府</h1>
+            <p class="subtitle">为了人类文明的延续</p>
+            <div class="org-stats">
+                <div class="stat-item">
+                    <span class="label">中央机构</span>
+                    <span class="value">12</span>
+                </div>
+                <div class="stat-item">
+                    <span class="label">地区分部</span>
+                    <span class="value">147</span>
+                </div>
+                <div class="stat-item">
+                    <span class="label">在职人员</span>
+                    <span class="value">486,735</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="government-content">
+        <section class="org-section central-command">
+            <div class="section-header">
+                <h2>中央指挥部</h2>
+                <p class="section-desc">人类文明的最高决策机构</p>
+            </div>
+            <div class="org-grid">
+                <div class="swift-card org-card primary">
+                    <div class="org-icon">
+                        <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=500&auto=format" alt="最高议会">
+                    </div>
+                    <div class="org-content">
+                        <h3>最高议会</h3>
+                        <p>负责制定人类文明存续的重大战略决策，协调全球资源分配。</p>
+                        <div class="org-meta">
+                            <span class="meta-item">
+                                <span class="label">成员数</span>
+                                <span class="value">300</span>
+                            </span>
+                            <span class="meta-item">
+                                <span class="label">会议频率</span>
+                                <span class="value">每周</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swift-card org-card">
+                    <div class="org-icon">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&auto=format" alt="行星发动机指挥部">
+                    </div>
+                    <div class="org-content">
+                        <h3>行星发动机指挥部</h3>
+                        <p>统筹管理全球行星发动机的运行、维护和升级工作。</p>
+                        <div class="org-meta">
+                            <span class="meta-item">
+                                <span class="label">管理发动机</span>
+                                <span class="value">17,854台</span>
+                            </span>
+                            <span class="meta-item">
+                                <span class="label">工作人员</span>
+                                <span class="value">85,421</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swift-card org-card">
+                    <div class="org-icon">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=500&auto=format" alt="地下城市管理局">
+                    </div>
+                    <div class="org-content">
+                        <h3>地下城市管理局</h3>
+                        <p>负责全球地下城市的规划、建设和管理工作。</p>
+                        <div class="org-meta">
+                            <span class="meta-item">
+                                <span class="label">管理城市</span>
+                                <span class="value">3,000+</span>
+                            </span>
+                            <span class="meta-item">
+                                <span class="label">工作人员</span>
+                                <span class="value">124,567</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="org-section departments">
+            <div class="section-header">
+                <h2>职能部门</h2>
+                <p class="section-desc">保障人类文明运转的核心机构</p>
+            </div>
+            <div class="departments-grid">
+                <div class="swift-card department-card">
+                    <h3>科学技术部</h3>
+                    <ul class="responsibility-list">
+                        <li>行星发动机技术研发</li>
+                        <li>空间航行技术创新</li>
+                        <li>生态系统维持研究</li>
+                        <li>能源技术开发</li>
+                    </ul>
+                    <a href="#" class="more-link">了解更多 →</a>
+                </div>
+
+                <div class="swift-card department-card">
+                    <h3>资源调配部</h3>
+                    <ul class="responsibility-list">
+                        <li>全球资源统筹规划</li>
+                        <li>物资配给管理</li>
+                        <li>能源分配调度</li>
+                        <li>应急储备管理</li>
+                    </ul>
+                    <a href="#" class="more-link">了解更多 →</a>
+                </div>
+
+                <div class="swift-card department-card">
+                    <h3>人口管理部</h3>
+                    <ul class="responsibility-list">
+                        <li>人口分布规划</li>
+                        <li>公民身份管理</li>
+                        <li>人口迁移协调</li>
+                        <li>人才培养计划</li>
+                    </ul>
+                    <a href="#" class="more-link">了解更多 →</a>
+                </div>
+
+                <div class="swift-card department-card">
+                    <h3>安全保卫部</h3>
+                    <ul class="responsibility-list">
+                        <li>地下城市安全</li>
+                        <li>关键设施防护</li>
+                        <li>应急响应处置</li>
+                        <li>秩序维护管理</li>
+                    </ul>
+                    <a href="#" class="more-link">了解更多 →</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="org-section regional">
+            <div class="section-header">
+                <h2>地区管理中心</h2>
+                <p class="section-desc">落实执行的区域机构</p>
+            </div>
+            <div class="region-map">
+                <div class="map-container">
+                    <!-- 这里可以添加交互式地图 -->
+                    <div class="map-placeholder">
+                        <span>交互式地图开发中...</span>
+                    </div>
+                </div>
+                <div class="region-list">
+                    <div class="region-item">
+                        <span class="region-name">亚洲区</span>
+                        <span class="city-count">874个地下城市</span>
+                    </div>
+                    <div class="region-item">
+                        <span class="region-name">欧洲区</span>
+                        <span class="city-count">623个地下城市</span>
+                    </div>
+                    <div class="region-item">
+                        <span class="region-name">北美区</span>
+                        <span class="city-count">512个地下城市</span>
+                    </div>
+                    <div class="region-item">
+                        <span class="region-name">南美区</span>
+                        <span class="city-count">437个地下城市</span>
+                    </div>
+                    <div class="region-item">
+                        <span class="region-name">非洲区</span>
+                        <span class="city-count">389个地下城市</span>
+                    </div>
+                    <div class="region-item">
+                        <span class="region-name">大洋洲区</span>
+                        <span class="city-count">165个地下城市</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<style>
+.government-page {
+    min-height: 100vh;
+    background: #000;
+    color: #fff;
+    padding-top: 80px;
+}
+
+.page-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&auto=format') center/cover;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 3rem;
+}
+
+.org-stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 3rem;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.stat-item .label {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.stat-item .value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.government-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.org-section {
+    margin-bottom: 6rem;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.section-desc {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.1rem;
+}
+
+.org-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.org-card {
+    background: rgba(13, 13, 13, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.org-card.primary {
+    border-color: #FF453A;
+}
+
+.org-icon {
+    height: 200px;
+    overflow: hidden;
+}
+
+.org-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.org-content {
+    padding: 1.5rem;
+}
+
+.org-content h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.org-content p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.org-meta {
+    display: flex;
+    justify-content: space-between;
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.meta-item .label {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.meta-item .value {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.departments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.department-card {
+    background: rgba(13, 13, 13, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
+}
+
+.department-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #FF453A;
+}
+
+.responsibility-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+.responsibility-list li {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.responsibility-list li::before {
+    content: "•";
+    color: #FF453A;
+    position: absolute;
+    left: 0;
+}
+
+.more-link {
+    color: #FF453A;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.region-map {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.map-container {
+    background: rgba(13, 13, 13, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+}
+
+.map-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.region-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.region-item {
+    background: rgba(13, 13, 13, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.region-name {
+    font-weight: 500;
+}
+
+.city-count {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .org-stats {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .region-map {
+        grid-template-columns: 1fr;
+    }
+
+    .map-container {
+        aspect-ratio: 4/3;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 添加部门卡片悬停效果
+    const departmentCards = document.querySelectorAll('.department-card');
+    departmentCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-4px)';
+            this.style.transition = 'transform 0.3s ease';
+        });
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+
+    // 添加地区列表项悬停效果
+    const regionItems = document.querySelectorAll('.region-item');
+    regionItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            this.style.borderColor = '#FF453A';
+            this.style.transition = 'border-color 0.3s ease';
+        });
+        item.addEventListener('mouseleave', function() {
+            this.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+        });
+    });
+});
+</script>
+{% endblock %} 

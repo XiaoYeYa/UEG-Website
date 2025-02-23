@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UEG - 地球联合政府 {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* 全局动画样式 */
+        .page-transition-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            transform-origin: top;
+            transform: scaleY(1);
+            opacity: 1;
+            z-index: 9999;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                        opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.95);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .slide-in {
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .slide-in.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* SwiftUI 风格的按钮悬浮效果 */
+        .swift-button {
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+                        box-shadow 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .swift-button:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 加载动画容器 */
+        .loading-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loading-container.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* 加载动画 */
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 3px solid rgba(255, 69, 58, 0.1);
+            border-radius: 50%;
+            border-top-color: #FF453A;
+            animation: spin 1s ease-in-out infinite;
+            position: relative;
+        }
+
+        .loading-spinner::after {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            border: 3px solid transparent;
+            border-top-color: rgba(255, 69, 58, 0.3);
+            border-radius: 50%;
+            animation: spin 1.5s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* 数字滚动动画 */
+        .number-animation {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .number-animation.updating {
+            transform: translateY(-10px);
+            opacity: 0;
+        }
+    </style>
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- 加载动画 -->
+    <div class="loading-container">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <header class="main-header fade-in">
+        <div class="header-content">
+            <div class="logo">
+                <a href="{{ url_for('index') }}">
+                    <img src="https://uegov.world/wp-content/uploads/2024/02/userlmn_319cbf299b0be3c67e7b8d0e5f4965b5.png" alt="UEG Logo">
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="{{ url_for('news') }}" class="slide-in">最新公告</a></li>
+                    <li><a href="{{ url_for('citizen_system') }}" class="slide-in">公民系统</a></li>
+                    <li><a href="{{ url_for('underground_cities') }}" class="slide-in">地下城市</a></li>
+                    <li><a href="{{ url_for('history') }}" class="slide-in">历史事件</a></li>
+                    <li><a href="{{ url_for('government') }}" class="slide-in">联合政府</a></li>
+                </ul>
+            </nav>
+            <div class="user-controls scale-in">
+                {% if current_user.is_authenticated %}
+                    <span class="citizen-id">公民ID: {{ current_user.citizen_id }}</span>
+                    <a href="{{ url_for('logout') }}" class="btn btn-logout swift-button">登出</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}" class="btn btn-login swift-button">登录</a>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} slide-in">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="main-footer fade-in">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>地球联合政府</h3>
+                <p>为人类文明的延续而奋斗</p>
+            </div>
+            <div class="footer-section">
+                <h3>紧急联系</h3>
+                <p>全球应急响应中心: 2044-EMERGENCY</p>
+            </div>
+            <div class="footer-section">
+                <h3>版权信息</h3>
+                <p>&copy; 2044 地球联合政府. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取加载动画容器
+            const loadingContainer = document.querySelector('.loading-container');
+            
+            // 页面加载完成后，延迟一小段时间再隐藏加载动画
+            setTimeout(() => {
+                loadingContainer.classList.add('hidden');
+            }, 800);
+
+            // 页面跳转时显示加载动画
+            document.addEventListener('click', function(e) {
+                const link = e.target.closest('a');
+                if (link && !e.ctrlKey && !e.shiftKey && !e.metaKey && !e.altKey) {
+                    e.preventDefault();
+                    loadingContainer.classList.remove('hidden');
+                    
+                    setTimeout(() => {
+                        window.location.href = link.href;
+                    }, 500);
+                }
+            });
+
+            // 浏览器后退/前进按钮事件
+            window.addEventListener('popstate', function() {
+                loadingContainer.classList.remove('hidden');
+            });
+
+            // 初始化页面过渡动画
+            const pageTransition = new UEGAnimations.PageTransition();
+            pageTransition.hide();
+
+            // 添加淡入动画
+            const fadeElements = document.querySelectorAll('.fade-in, .scale-in, .slide-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            fadeElements.forEach(element => observer.observe(element));
+
+            // 初始化卡片悬浮效果
+            document.querySelectorAll('.swift-card').forEach(card => {
+                new UEGAnimations.HoverEffect(card);
+            });
+
+            // 初始化数字动画
+            document.querySelectorAll('[data-number-animation]').forEach(element => {
+                const endValue = parseInt(element.dataset.numberAnimation);
+                const animation = new UEGAnimations.NumberAnimation(element, endValue);
+                animation.start();
+            });
+
+            // 初始化进度条动画
+            document.querySelectorAll('[data-progress-animation]').forEach(element => {
+                const endValue = parseInt(element.dataset.progressAnimation);
+                const animation = new UEGAnimations.ProgressAnimation(element, endValue);
+                animation.start();
+            });
+        });
+    </script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html> 

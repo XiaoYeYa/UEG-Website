@@ -1,0 +1,363 @@
+{% extends "base.html" %}
+
+{% block title %} - 身份验证{% endblock %}
+
+{% block content %}
+<div class="login-page">
+    <div class="terminal-section">
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="controls">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="title">UEG Security Terminal</div>
+            </div>
+            <div class="terminal-body">
+                <div class="output" id="terminal-output">
+                    <div class="line">UEG Security Protocol v5.5.0</div>
+                    <div class="line">Initializing security modules...</div>
+                    <div class="line success">[OK] Core systems loaded</div>
+                    <div class="line success">[OK] Quantum encryption enabled</div>
+                    <div class="line success">[OK] Neural network verification active</div>
+                    <div class="line warning">[ALERT] Detecting unauthorized access attempts</div>
+                    <div class="line">Running security checks...</div>
+                    <div class="line">
+                        <div class="loading-bar">
+                            <div class="progress"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="auth-section">
+        <div class="auth-container">
+            <div class="auth-header">
+                <div class="auth-title">UEG 安全认证</div>
+                <div class="auth-subtitle">地球联合政府公民身份验证系统</div>
+            </div>
+            <form method="POST" action="{{ url_for('login') }}" class="auth-form" id="login-form">
+                <div class="input-group">
+                    <label for="username">
+                        <span class="label-text">公民身份码</span>
+                        <span class="required">*</span>
+                    </label>
+                    <div class="input-wrapper">
+                        <input type="text" id="username" name="username" required 
+                               pattern="[0-9]{8}" placeholder="输入8位数字身份码">
+                        <div class="input-status"></div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="password">
+                        <span class="label-text">访问密钥</span>
+                        <span class="required">*</span>
+                    </label>
+                    <div class="input-wrapper">
+                        <input type="password" id="password" name="password" required>
+                        <div class="input-status"></div>
+                    </div>
+                </div>
+                <button type="submit" class="auth-button">
+                    <span class="button-text">验证身份</span>
+                    <span class="button-icon">→</span>
+                </button>
+            </form>
+            <div class="auth-footer">
+                <a href="{{ url_for('register') }}" class="register-link">
+                    申请公民身份
+                    <span class="link-icon">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.login-page {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #000;
+}
+
+.terminal-section {
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+}
+
+.terminal {
+    width: 100%;
+    max-width: 600px;
+    background: #0D0D0D;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 59, 48, 0.2);
+}
+
+.terminal-header {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 59, 48, 0.2);
+}
+
+.controls {
+    display: flex;
+    gap: 6px;
+}
+
+.controls span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.controls span:nth-child(1) { background: #FF453A; }
+.controls span:nth-child(2) { background: #FFD60A; }
+.controls span:nth-child(3) { background: #32D74B; }
+
+.title {
+    margin-left: 1rem;
+    font-family: 'SF Mono', monospace;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.terminal-body {
+    padding: 1rem;
+    font-family: 'SF Mono', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    height: 500px;
+    overflow-y: auto;
+}
+
+.line {
+    margin-bottom: 0.5rem;
+    color: #fff;
+    opacity: 0;
+    animation: fadeIn 0.3s ease forwards;
+}
+
+.line.success { color: #32D74B; }
+.line.warning { color: #FFD60A; }
+.line.error { color: #FF453A; }
+
+.loading-bar {
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 1rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: #FF453A;
+    width: 0%;
+    animation: progress 2s ease infinite;
+}
+
+.auth-section {
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0D0D0D;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+.auth-header {
+    margin-bottom: 2.5rem;
+}
+
+.auth-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.auth-subtitle {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.label-text {
+    display: block;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.required {
+    color: #FF453A;
+    margin-left: 0.25rem;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+input:focus {
+    border-color: #FF453A;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 69, 58, 0.2);
+}
+
+.auth-button {
+    width: 100%;
+    padding: 0.875rem;
+    background: #FF453A;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.auth-button:hover {
+    background: #FF5146;
+    transform: translateY(-1px);
+}
+
+.button-icon {
+    font-size: 1.2rem;
+    transition: transform 0.2s ease;
+}
+
+.auth-button:hover .button-icon {
+    transform: translateX(4px);
+}
+
+.auth-footer {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.register-link {
+    color: #FF453A;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.link-icon {
+    transition: transform 0.2s ease;
+}
+
+.register-link:hover .link-icon {
+    transform: translateX(4px);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes progress {
+    0% { width: 0%; }
+    50% { width: 100%; }
+    100% { width: 0%; }
+}
+
+@media (max-width: 768px) {
+    .login-page {
+        grid-template-columns: 1fr;
+    }
+    
+    .terminal-section {
+        display: none;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const terminalOutput = document.getElementById('terminal-output');
+    const securityMessages = [
+        { text: 'Scanning network protocols...', type: '' },
+        { text: '[OK] Firewall active', type: 'success' },
+        { text: 'Initializing quantum encryption...', type: '' },
+        { text: '[WARNING] Multiple connection attempts detected', type: 'warning' },
+        { text: 'Analyzing threat patterns...', type: '' },
+        { text: '[OK] Biometric verification ready', type: 'success' },
+        { text: 'Loading security database...', type: '' },
+        { text: '[OK] Neural patterns synchronized', type: 'success' },
+        { text: 'Monitoring system activity...', type: '' }
+    ];
+
+    let messageIndex = 0;
+    
+    function addMessage() {
+        if (messageIndex < securityMessages.length) {
+            const message = securityMessages[messageIndex];
+            const div = document.createElement('div');
+            div.className = `line ${message.type}`;
+            div.textContent = message.text;
+            terminalOutput.appendChild(div);
+            terminalOutput.scrollTop = terminalOutput.scrollHeight;
+            messageIndex++;
+            
+            setTimeout(addMessage, Math.random() * 1000 + 500);
+        }
+    }
+
+    setTimeout(addMessage, 1000);
+
+    // Form submission animation
+    const loginForm = document.getElementById('login-form');
+    loginForm.addEventListener('submit', function(e) {
+        const div = document.createElement('div');
+        div.className = 'line';
+        div.textContent = 'Verifying credentials...';
+        terminalOutput.appendChild(div);
+        
+        setTimeout(() => {
+            const div = document.createElement('div');
+            div.className = 'line loading-bar';
+            div.innerHTML = '<div class="progress"></div>';
+            terminalOutput.appendChild(div);
+        }, 500);
+    });
+});
+</script>
+{% endblock %} 

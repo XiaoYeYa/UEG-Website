@@ -1,0 +1,523 @@
+{% extends "base.html" %}
+
+{% block title %} - 地下城市{% endblock %}
+
+{% block content %}
+<div class="cities-page">
+    <div class="page-header">
+        <div class="header-content">
+            <h1>地下城市网络</h1>
+            <p class="subtitle">人类文明的地下避难所</p>
+            <div class="status-bar">
+                <div class="status-item">
+                    <span class="label">在线城市</span>
+                    <span class="value">2,947</span>
+                </div>
+                <div class="status-item">
+                    <span class="label">总容纳人口</span>
+                    <span class="value">25亿</span>
+                </div>
+                <div class="status-item">
+                    <span class="label">平均负载</span>
+                    <span class="value">83%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cities-content">
+        <div class="control-panel">
+            <div class="search-section">
+                <input type="text" placeholder="搜索城市..." class="search-input">
+                <div class="filter-group">
+                    <select class="filter-select">
+                        <option>所有区域</option>
+                        <option>亚洲区</option>
+                        <option>欧洲区</option>
+                        <option>美洲区</option>
+                        <option>非洲区</option>
+                        <option>大洋洲区</option>
+                    </select>
+                    <select class="filter-select">
+                        <option>所有状态</option>
+                        <option>运行正常</option>
+                        <option>维护中</option>
+                        <option>预警状态</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="view-toggle">
+                <button class="view-btn active">网格视图</button>
+                <button class="view-btn">列表视图</button>
+                <button class="view-btn">地图视图</button>
+            </div>
+        </div>
+
+        <div class="cities-grid">
+            <div class="swift-card city-card">
+                <div class="city-header">
+                    <div class="city-info">
+                        <h3>3847号地下城市</h3>
+                        <span class="location">前青藏高原区域</span>
+                    </div>
+                    <div class="status-badge operational">运行正常</div>
+                </div>
+                <div class="city-stats">
+                    <div class="stat-row">
+                        <div class="stat">
+                            <span class="stat-label">当前人口</span>
+                            <span class="stat-value">2,147,483</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">容量利用率</span>
+                            <span class="stat-value">86%</span>
+                        </div>
+                    </div>
+                    <div class="stat-row">
+                        <div class="stat">
+                            <span class="stat-label">能源储备</span>
+                            <span class="stat-value">92%</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">生态指数</span>
+                            <span class="stat-value">A+</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="city-features">
+                    <span class="feature">医疗中心</span>
+                    <span class="feature">教育设施</span>
+                    <span class="feature">农业区</span>
+                    <span class="feature">工业区</span>
+                </div>
+                <a href="#" class="details-button">
+                    查看详情
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+
+            <div class="swift-card city-card">
+                <div class="city-header">
+                    <div class="city-info">
+                        <h3>2571号地下城市</h3>
+                        <span class="location">前喜马拉雅山脉区域</span>
+                    </div>
+                    <div class="status-badge maintenance">维护中</div>
+                </div>
+                <div class="city-stats">
+                    <div class="stat-row">
+                        <div class="stat">
+                            <span class="stat-label">当前人口</span>
+                            <span class="stat-value">1,834,672</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">容量利用率</span>
+                            <span class="stat-value">73%</span>
+                        </div>
+                    </div>
+                    <div class="stat-row">
+                        <div class="stat">
+                            <span class="stat-label">能源储备</span>
+                            <span class="stat-value">88%</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">生态指数</span>
+                            <span class="stat-value">A</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="city-features">
+                    <span class="feature">医疗中心</span>
+                    <span class="feature">科研基地</span>
+                    <span class="feature">能源中心</span>
+                </div>
+                <a href="#" class="details-button">
+                    查看详情
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+
+            <div class="swift-card city-card">
+                <div class="city-header">
+                    <div class="city-info">
+                        <h3>1024号地下城市</h3>
+                        <span class="location">前阿尔卑斯山脉区域</span>
+                    </div>
+                    <div class="status-badge warning">预警状态</div>
+                </div>
+                <div class="city-stats">
+                    <div class="stat-row">
+                        <div class="stat">
+                            <span class="stat-label">当前人口</span>
+                            <span class="stat-value">2,983,156</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">容量利用率</span>
+                            <span class="stat-value">95%</span>
+                        </div>
+                    </div>
+                    <div class="stat-row">
+                        <div class="stat">
+                            <span class="stat-label">能源储备</span>
+                            <span class="stat-value">67%</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">生态指数</span>
+                            <span class="stat-value">B+</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="city-features">
+                    <span class="feature">医疗中心</span>
+                    <span class="feature">指挥中心</span>
+                    <span class="feature">军事基地</span>
+                </div>
+                <a href="#" class="details-button">
+                    查看详情
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+
+            <!-- 更多城市卡片 -->
+        </div>
+
+        <div class="load-more">
+            <button class="load-more-btn">
+                加载更多城市
+                <span class="arrow">↓</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<style>
+.cities-page {
+    min-height: 100vh;
+    background: #000;
+    color: #fff;
+    padding-top: 80px;
+}
+
+.page-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=1920&auto=format') center/cover;
+    padding: 4rem 2rem;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.header-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 3rem;
+}
+
+.status-bar {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 3rem;
+}
+
+.status-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.status-item .label {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.status-item .value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.cities-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.control-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.search-section {
+    display: flex;
+    gap: 1rem;
+    flex: 1;
+}
+
+.search-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.filter-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.filter-select {
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.view-toggle {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.view-btn {
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.view-btn.active {
+    background: #FF453A;
+    border-color: #FF453A;
+}
+
+.cities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.city-card {
+    background: rgba(13, 13, 13, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
+}
+
+.city-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.city-info h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.location {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.status-badge {
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.status-badge.operational {
+    background: rgba(50, 215, 75, 0.1);
+    color: #32D74B;
+}
+
+.status-badge.maintenance {
+    background: rgba(255, 159, 10, 0.1);
+    color: #FF9F0A;
+}
+
+.status-badge.warning {
+    background: rgba(255, 69, 58, 0.1);
+    color: #FF453A;
+}
+
+.city-stats {
+    margin-bottom: 1.5rem;
+}
+
+.stat-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.stat-value {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.city-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.feature {
+    padding: 0.25rem 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.details-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.75rem;
+    background: rgba(255, 69, 58, 0.1);
+    border: none;
+    border-radius: 8px;
+    color: #FF453A;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.details-button:hover {
+    background: rgba(255, 69, 58, 0.2);
+}
+
+.arrow {
+    transition: transform 0.2s ease;
+}
+
+.details-button:hover .arrow {
+    transform: translateX(4px);
+}
+
+.load-more {
+    text-align: center;
+}
+
+.load-more-btn {
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.load-more-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.load-more-btn:hover .arrow {
+    transform: translateY(4px);
+}
+
+@media (max-width: 768px) {
+    .status-bar {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .control-panel {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .search-section {
+        flex-direction: column;
+    }
+
+    .filter-group {
+        width: 100%;
+    }
+
+    .filter-select {
+        flex: 1;
+    }
+
+    .view-toggle {
+        width: 100%;
+    }
+
+    .view-btn {
+        flex: 1;
+    }
+
+    .cities-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 视图切换
+    const viewBtns = document.querySelectorAll('.view-btn');
+    viewBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            viewBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    // 加载更多功能
+    const loadMoreBtn = document.querySelector('.load-more-btn');
+    loadMoreBtn.addEventListener('click', function() {
+        // 实现加载更多逻辑
+        console.log('Loading more cities...');
+    });
+});
+</script>
+{% endblock %} 

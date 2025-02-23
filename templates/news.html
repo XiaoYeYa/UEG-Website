@@ -1,0 +1,369 @@
+{% extends "base.html" %}
+
+{% block title %} - 最新公告{% endblock %}
+
+{% block content %}
+<div class="news-page">
+    <div class="page-header">
+        <div class="header-content">
+            <h1>最新公告</h1>
+            <div class="filter-bar">
+                <div class="search-box">
+                    <input type="text" placeholder="搜索公告..." class="search-input">
+                    <button class="search-button">搜索</button>
+                </div>
+                <div class="filter-options">
+                    <button class="filter-btn active">全部</button>
+                    <button class="filter-btn">紧急</button>
+                    <button class="filter-btn">重要</button>
+                    <button class="filter-btn">通知</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="news-content">
+        <div class="news-grid">
+            <article class="swift-card news-item urgent">
+                <div class="news-content">
+                    <div class="meta">
+                        <span class="date">2044-03-15</span>
+                        <span class="tag urgent">紧急</span>
+                    </div>
+                    <h2>木星轨道修正计划启动</h2>
+                    <p>鉴于最新观测数据显示木星引力场波动超出预期，联合政府决定启动轨道修正计划。所有地下城市将进入防护状态，公民需保持关注实时通知。本次修正预计持续72小时，期间可能出现重力波动，请做好防护准备。</p>
+                    <div class="news-footer">
+                        <span class="department">发布部门：行星发动机指挥部</span>
+                        <a href="#" class="details-link">查看详情 →</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="swift-card news-item important">
+                <div class="news-content">
+                    <div class="meta">
+                        <span class="date">2044-03-14</span>
+                        <span class="tag important">重要</span>
+                    </div>
+                    <h2>第3847号地下城市完成扩建</h2>
+                    <p>位于前青藏高原区域的3847号地下城市完成扩建工程，新增容纳人口50万，配备最新的生态循环系统和防护设施。新区域将于下周开始接收市民入住，请符合条件的公民及时办理转移手续。</p>
+                    <div class="news-footer">
+                        <span class="department">发布部门：地下城市管理局</span>
+                        <a href="#" class="details-link">查看详情 →</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="swift-card news-item">
+                <div class="news-content">
+                    <div class="meta">
+                        <span class="date">2044-03-13</span>
+                        <span class="tag">通知</span>
+                    </div>
+                    <h2>行星发动机维护计划调整</h2>
+                    <p>为确保木星轨道加速阶段的平稳过渡，联合政府技术部门调整了行星发动机的维护计划。第1区至第500区发动机将进行例行检修，持续时间7天。期间将由备用发动机组接管动力输出，预计不会影响正常航行。</p>
+                    <div class="news-footer">
+                        <span class="department">发布部门：技术维护中心</span>
+                        <a href="#" class="details-link">查看详情 →</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="swift-card news-item important">
+                <div class="news-content">
+                    <div class="meta">
+                        <span class="date">2044-03-12</span>
+                        <span class="tag important">重要</span>
+                    </div>
+                    <h2>新一代量子通信网络部署完成</h2>
+                    <p>经过三个月的升级改造，覆盖全球地下城市的量子通信网络已完成部署。新系统将大幅提升通信安全性和速度，支持更大规模的数据传输。各单位请按照通知时间完成系统切换。</p>
+                    <div class="news-footer">
+                        <span class="department">发布部门：通信管理局</span>
+                        <a href="#" class="details-link">查看详情 →</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="swift-card news-item">
+                <div class="news-content">
+                    <div class="meta">
+                        <span class="date">2044-03-11</span>
+                        <span class="tag">通知</span>
+                    </div>
+                    <h2>公民身份识别系统升级公告</h2>
+                    <p>为提升安全等级，公民身份识别系统将于本月20日进行升级。升级期间（约4小时）可能出现身份验证延迟，请公民提前安排相关业务办理时间。</p>
+                    <div class="news-footer">
+                        <span class="department">发布部门：公民管理局</span>
+                        <a href="#" class="details-link">查看详情 →</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <div class="pagination">
+            <button class="page-btn">←</button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <span class="page-dots">...</span>
+            <button class="page-btn">12</button>
+            <button class="page-btn">→</button>
+        </div>
+    </div>
+</div>
+
+<style>
+.news-page {
+    min-height: 100vh;
+    background: #000;
+    color: #fff;
+    padding-top: 80px;
+}
+
+.page-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&auto=format') center/cover;
+    padding: 4rem 2rem;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #fff;
+}
+
+.filter-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.search-box {
+    display: flex;
+    gap: 1rem;
+    flex: 1;
+}
+
+.search-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.search-button {
+    padding: 0.75rem 1.5rem;
+    background: #FF453A;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.search-button:hover {
+    background: #FF5146;
+}
+
+.filter-options {
+    display: flex;
+    gap: 1rem;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 100px;
+    color: #fff;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-btn.active {
+    background: #FF453A;
+    border-color: #FF453A;
+}
+
+.news-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.news-grid {
+    display: grid;
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.news-item {
+    background: rgba(13, 13, 13, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.news-item.urgent {
+    border-color: #FF453A;
+}
+
+.news-item.important {
+    border-color: #FF9F0A;
+}
+
+.news-content {
+    padding: 2rem;
+}
+
+.meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.date {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+.tag {
+    padding: 0.25rem 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    font-size: 0.8rem;
+    color: #fff;
+}
+
+.tag.urgent {
+    background: rgba(255, 69, 58, 0.1);
+    color: #FF453A;
+}
+
+.tag.important {
+    background: rgba(255, 159, 10, 0.1);
+    color: #FF9F0A;
+}
+
+.news-item h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.news-item p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.news-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.department {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+.details-link {
+    color: #FF453A;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.page-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.page-btn.active {
+    background: #FF453A;
+    border-color: #FF453A;
+}
+
+.page-dots {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 768px) {
+    .filter-bar {
+        flex-direction: column;
+    }
+
+    .filter-options {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 1rem;
+    }
+
+    .news-content {
+        padding: 2rem 1rem;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 筛选按钮切换
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    // 搜索功能
+    const searchInput = document.querySelector('.search-input');
+    const searchButton = document.querySelector('.search-button');
+    searchButton.addEventListener('click', function() {
+        const searchTerm = searchInput.value.trim();
+        if (searchTerm) {
+            // 实现搜索逻辑
+            console.log('Searching for:', searchTerm);
+        }
+    });
+});
+</script>
+{% endblock %} 

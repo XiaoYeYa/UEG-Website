@@ -1,0 +1,281 @@
+{% extends "base.html" %}
+
+{% block title %} - 注册{% endblock %}
+
+{% block content %}
+<div class="register-page">
+    <div class="code-section">
+        <div class="code-container">
+            <div class="code-header">
+                <div class="window-controls">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="file-name">citizen_registration.swift</div>
+            </div>
+            <div class="code-content">
+                <div class="line-numbers">
+                    {% for i in range(1, 51) %}
+                    <span>{{ i }}</span>
+                    {% endfor %}
+                </div>
+                <pre class="code-text">
+<span class="keyword">import</span> SwiftUI
+
+<span class="keyword">struct</span> <span class="type">CitizenRegistrationView</span>: View {
+    <span class="keyword">@State private var</span> citizenData = <span class="type">CitizenData</span>()
+    <span class="keyword">@State private var</span> isProcessing = <span class="boolean">false</span>
+    
+    <span class="keyword">var</span> body: <span class="type">some</span> View {
+        <span class="type">NavigationView</span> {
+            <span class="type">Form</span> {
+                <span class="type">Section</span>(header: Text(<span class="string">"Personal Information"</span>)) {
+                    TextField(<span class="string">"Full Name"</span>, text: $citizenData.name)
+                    TextField(<span class="string">"Birth Location"</span>, text: $citizenData.birthPlace)
+                    DatePicker(<span class="string">"Date of Birth"</span>, 
+                              selection: $citizenData.birthDate,
+                              displayedComponents: .date)
+                }
+                
+                <span class="type">Section</span>(header: Text(<span class="string">"Security Credentials"</span>)) {
+                    SecureField(<span class="string">"Create Access Code"</span>, 
+                               text: $citizenData.accessCode)
+                    SecureField(<span class="string">"Verify Access Code"</span>, 
+                               text: $citizenData.verifyCode)
+                }
+                
+                <span class="type">Section</span>(header: Text(<span class="string">"Underground City Assignment"</span>)) {
+                    Picker(<span class="string">"Select City"</span>, 
+                           selection: $citizenData.cityId) {
+                        ForEach(availableCities) { city in
+                            Text(city.name).tag(city.id)
+                        }
+                    }
+                }
+            }
+            .navigationTitle(<span class="string">"Citizen Registration"</span>)
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Button(action: submitRegistration) {
+                        Text(<span class="string">"Submit"</span>)
+                    }
+                    .disabled(isProcessing)
+                }
+            }
+        }
+    }
+    
+    <span class="keyword">private func</span> submitRegistration() {
+        isProcessing = <span class="boolean">true</span>
+        <span class="type">UEGRegistrationService</span>.submit(citizenData) { result in
+            isProcessing = <span class="boolean">false</span>
+            <span class="keyword">switch</span> result {
+            <span class="keyword">case</span> .success(let citizenId):
+                presentSuccessAlert(citizenId)
+            <span class="keyword">case</span> .failure(let error):
+                presentErrorAlert(error)
+            }
+        }
+    }
+}</pre>
+            </div>
+        </div>
+    </div>
+    <div class="register-section">
+        <div class="register-container">
+            <h2>公民身份注册</h2>
+            <form method="POST" action="{{ url_for('register') }}" class="register-form">
+                <div class="form-group">
+                    <label for="username">姓名</label>
+                    <input type="text" id="username" name="username" required 
+                           placeholder="输入真实姓名">
+                </div>
+                <div class="form-group">
+                    <label for="citizen_id">公民身份码</label>
+                    <input type="text" id="citizen_id" name="citizen_id" 
+                           pattern="[0-9]{8}" required
+                           placeholder="8位数字身份码">
+                    <small class="form-hint">身份码将用于所有UEG系统的身份验证</small>
+                </div>
+                <div class="form-group">
+                    <label for="password">访问密钥</label>
+                    <input type="password" id="password" name="password" required
+                           placeholder="设置访问密钥">
+                    <small class="form-hint">请使用包含字母和数字的复杂密钥</small>
+                </div>
+                <button type="submit" class="btn btn-login">提交注册</button>
+            </form>
+            <div class="auth-links">
+                <a href="{{ url_for('login') }}" class="login-link">返回登录</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.register-page {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: var(--background-dark);
+}
+
+.code-section {
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--background-dark);
+}
+
+.code-container {
+    width: 100%;
+    max-width: 600px;
+    background: var(--background-light);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.code-header {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.window-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.window-controls span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--primary-color);
+}
+
+.window-controls span:nth-child(2) {
+    background: var(--warning-color);
+}
+
+.window-controls span:nth-child(3) {
+    background: var(--success-color);
+}
+
+.file-name {
+    margin-left: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.code-content {
+    display: flex;
+    padding: 1rem 0;
+    font-family: 'SF Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    overflow-x: auto;
+}
+
+.line-numbers {
+    padding: 0 1rem;
+    color: var(--text-secondary);
+    opacity: 0.5;
+    text-align: right;
+    user-select: none;
+}
+
+.code-text {
+    padding-right: 1rem;
+    margin: 0;
+    white-space: pre;
+}
+
+.keyword {
+    color: #FF7AB2;
+}
+
+.string {
+    color: #FF8170;
+}
+
+.type {
+    color: #6BDFFF;
+}
+
+.boolean {
+    color: #FF7AB2;
+}
+
+.comment {
+    color: #7F8C98;
+}
+
+.register-section {
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--background-light);
+}
+
+.register-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+}
+
+.register-container h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.form-hint {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.login-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .register-page {
+        grid-template-columns: 1fr;
+    }
+    
+    .code-section {
+        display: none;
+    }
+}
+</style>
+{% endblock %} 
