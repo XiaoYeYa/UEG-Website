@@ -24,7 +24,7 @@
 
 1. 克隆项目到本地：
 ```bash
-git clone https://github.com/your-username/ueg-website.git
+git clone https://github.com/XiaoYeYa/ueg-website.git
 cd ueg-website
 ```
 
